@@ -41,7 +41,7 @@ tab1.newToggle("Toggle", "Toggle! (prints the state)", false, function(state)
   until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X,pos.Y,pos.Z)) < 200 or getfenv().test == false
   end
   end)
-      example:AddToggle("Auto Open VW Kit", function(state)
+tab1.newToggle("Auto open VW", "Auto open VW! (prints the state)", false, function(state)
 getfenv().open = (state and true or false)
 while getfenv().open do
 task.wait()
