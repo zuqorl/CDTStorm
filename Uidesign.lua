@@ -234,7 +234,7 @@ DRR["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
 DRR["1e"]["AutomaticSize"] = Enum.AutomaticSize.X;
 DRR["1e"]["Size"] = UDim2.new(0.7192937135696411, 0, 0.41530051827430725, 0);
 DRR["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-DRR["1e"]["Text"] = [[DarkRay]];
+DRR["1e"]["Text"] = [[CDTStorm]];
 DRR["1e"]["BackgroundTransparency"] = 1;
 DRR["1e"]["Position"] = UDim2.new(0.13402166962623596, 0, 0.27320244908332825, 0);
 
