@@ -13,39 +13,55 @@ tab1.newButton("Button", "Prints Hello!", function()
     print('Hello!')
 end)
 tab1.newToggle("Toggle", "Toggle! (prints the state)", false, function(state)
-  getfenv().auto = (state and true or false)
-  wait(1)
-  workspace.Gravity = getfenv().grav
-  while getfenv().auto do
-    task.wait()
-  local chr = game.Players.LocalPlayer.Character
-  local car = chr.Humanoid.SeatPart.Parent.Parent
+  local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local Character = LocalPlayer.Character or LocalPlayer.CharacterAdded:Wait()
+local Humanoid = Character:WaitForChild("Humanoid")
+local car = Humanoid.SeatPart.Parent.Parent
+
+local auto = false
+local currentSpeed = 0
+local maxSpeed = 200 -- Set your desired max speed
+local acceleration = 50 -- Speed increase per second
+local gravity = 500 -- Adjust gravity as needed
+
+function toggleAuto(state)
+    auto = state and true or false
+    wait(1)
+    workspace.Gravity = gravity
+
     if not workspace:FindFirstChild("justapart") then
-      local new = Instance.new("Part",workspace)
-      new.Name = "justapart"
-      new.Size = Vector3.new(10000,20,10000)
-      new.Anchored = true
-      new.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position+Vector3.new(0,1000,0)
-  end
-  car:PivotTo(workspace:FindFirstChild("justapart").CFrame*CFrame.new(0,7,1000))
-  local pos = workspace:FindFirstChild("justapart").CFrame*CFrame.new(0,7,-1000)
-  repeat task.wait()
-    local acceleration = 50
-    workspace.Gravity = 500
-            car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
-    car:PivotTo(CFrame.new(car.PrimaryPart.Position,Vector3.new(pos.X,car.PrimaryPart.Position.Y,pos.Z)))
-            car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
-    car.PrimaryPart.AssemblyLinearVelocity = car.PrimaryPart.CFrame.LookVector*speed
-    car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
-  until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X,pos.Y,pos.Z)) < 200 or getfenv().test == false
-  end
-  end)
+        local new = Instance.new("Part", workspace)
+        new.Name = "justapart"
+        new.Size = Vector3.new(10000, 20, 10000)
+        new.Anchored = true
+        new.Position = Character.HumanoidRootPart.Position + Vector3.new(0, 1000, 0)
+    end
+
+    local pos = workspace:FindFirstChild("justapart").CFrame * CFrame.new(0, 7, -1000)
+
+    while auto do
+        task.wait()
+        updateVelocity()
+
+        -- Move the car
+        car:PivotTo(CFrame.new(car.PrimaryPart.Position, Vector3.new(pos.X, car.PrimaryPart.Position.Y, pos.Z)))
+        car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X, -100, currentSpeed)
+        
+        if LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X, pos.Y, pos.Z)) < 200 then
+            break
+        end
+    end
+end
+
 function updateVelocity()
     if currentSpeed < maxSpeed then
-        currentSpeed = math.min(currentSpeed + acceleration * wait(), maxSpeed)  -- Increase speed
+        currentSpeed = math.min(currentSpeed + acceleration * task.wait(), maxSpeed) -- Increase speed
     end
-    PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.x, PrimaryPart.Velocity.y, currentSpeed)
 end
+
+-- Example usage
+toggleAuto(true) -- Call this function to start the auto-driving
 tab1.newInput("Input", "Prints your input.", function(text)
     print("Entered text in Tab 1: " .. text)
 end)
