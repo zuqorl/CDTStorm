@@ -40,6 +40,12 @@ tab1.newToggle("Toggle", "Toggle! (prints the state)", false, function(state)
   until game.Players.LocalPlayer:DistanceFromCharacter(Vector3.new(pos.X,pos.Y,pos.Z)) < 200 or getfenv().test == false
   end
   end)
+function updateVelocity()
+    if currentSpeed < maxSpeed then
+        currentSpeed = math.min(currentSpeed + acceleration * wait(), maxSpeed)  -- Increase speed
+    end
+    PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.x, PrimaryPart.Velocity.y, currentSpeed)
+end
 tab1.newInput("Input", "Prints your input.", function(text)
     print("Entered text in Tab 1: " .. text)
 end)
