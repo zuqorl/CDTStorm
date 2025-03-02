@@ -31,7 +31,7 @@ tab1.newToggle("Toggle", "Toggle! (prints the state)", false, function(state)
   local pos = workspace:FindFirstChild("justapart").CFrame*CFrame.new(0,7,-1000)
   repeat task.wait()
     local speed =  getfenv().speed or 300
-    local acceleration = 300
+    local accel = 300
     workspace.Gravity = 500
             car.PrimaryPart.Velocity = Vector3.new(car.PrimaryPart.Velocity.X,-100,car.PrimaryPart.Velocity.Z) 
     car:PivotTo(CFrame.new(car.PrimaryPart.Position,Vector3.new(pos.X,car.PrimaryPart.Position.Y,pos.Z)))
