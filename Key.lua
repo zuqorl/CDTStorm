@@ -11,6 +11,9 @@ local response = KeySystem:Init({
 		if key=="1234" then
       KeyValid=true
 			return true
+	        if key=="134" then
+      KeyValid=true
+			return true
 		else
 			return false
 		end
