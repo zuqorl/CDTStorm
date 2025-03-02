@@ -5,7 +5,7 @@ local DRR = {};
 DRR["1"] = Instance.new("ScreenGui", game:GetService("CoreGui"));
 DRR["1"]["IgnoreGuiInset"] = true;
 DRR["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
-DRR["1"]["Name"] = [[DrRay]];
+DRR["1"]["Name"] = [[CDTStorm]];
 DRR["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 -- DrRay.TopBar
@@ -209,7 +209,7 @@ DRR["1b"]["BorderSizePixel"] = 0;
 DRR["1b"]["AutoButtonColor"] = false;
 DRR["1b"]["BackgroundColor3"] = Color3.fromRGB(42, 42, 58);
 DRR["1b"]["Size"] = UDim2.new(0.23481373488903046, 0, 0.682426393032074, 0);
-DRR["1b"]["Name"] = [[Title]];
+DRR["1b"]["Name"] = [[CDTStorm]];
 DRR["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 DRR["1b"]["Position"] = UDim2.new(0.015024710446596146, 0, 0.18421050906181335, 0);
 
