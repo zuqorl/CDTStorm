@@ -22,9 +22,7 @@ end)
 tab1.newInput("Input", "Prints your input.", function(text)
     print("Entered text in Tab 1: " .. text)
 end)
-tab.newDropdown("Dropdown", "Select one of these options!", {"water", "dog", "air", "bb", "airplane", "wohhho", "yeay", "delete"}, function(selectedOption)
-    print(selectedOption)
-end)
+
 
 -- Create the second tab with a different image ID
 local tab2 = DrRayLibrary.newTab("Tab 2", "ImageIdLogoHere")
