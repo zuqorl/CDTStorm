@@ -48,9 +48,34 @@ task.wait()
 game:GetService("ReplicatedStorage").Remotes.Services.VolkswagenEventServiceRemotes.ClaimFreePack:InvokeServer()
 end
  end)
+tab1.newToggle("Race test", "Auto open VW! (prints the state)", false, function(state)
+            _G.racetest = (state and true or false)
+            while _G.racetest do
+                wait()
+            if game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == false then
+                local chr = game.Players.LocalPlayer.Character
+            local car = chr.Humanoid.SeatPart.Parent.Parent
+             car:PivotTo(CFrame.new(162.18893432617188, 603.7154541015625, 6352.375))
+            chr.Head.Anchored = true
+            wait(1)
+            chr.Head.Anchored = false
+            wait(1)
+workspace.Races.RaceHandler.StartLobby:FireServer("Shelby")
+            task.wait(15)
+workspace.Races.Shelby.Script.Vote:FireServer("5", "Vote")
+            repeat wait()
+            until game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true or _G.racetest == false
+            elseif game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true then
+            for i =1,50 do
+workspace.Races.Shelby.Script.Checkpoint:FireServer(i)
+end
+end
+end
+end)
 tab1.newInput("Input", "Prints your input.", function(text)
     print("Entered text in Tab 1: " .. text)
 end)
+
 
 
 -- Create the second tab with a different image ID
