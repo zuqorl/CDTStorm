@@ -55,17 +55,14 @@ tab1.newToggle("Race test", "Auto open VW! (prints the state)", false, function(
             if game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == false then
                 local chr = game.Players.LocalPlayer.Character
             local car = chr.Humanoid.SeatPart.Parent.Parent
-             car:PivotTo(CFrame.new(162.18893432617188, 603.7154541015625, 6352.375))
             chr.Head.Anchored = true
             wait(1)
             chr.Head.Anchored = false
             wait(1)
 workspace:WaitForChild("Races"):WaitForChild("RaceHandler"):WaitForChild("StartLobby"):FireServer(unpack(Race))
 
-                workspace:WaitForChild("Races"):WaitForChild("RaceHandler"):WaitForChild("StartLobby"):FireServer(unpack(args))
-                
             task.wait(15)
-workspace.Races.Race.Script.Vote:FireServer("5", "Vote")
+workspace.Races.Race.Script.Vote:FireServer("10", "Vote")
             repeat wait()
             until game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true or _G.racetest == false
             elseif game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true then
