@@ -60,9 +60,12 @@ tab1.newToggle("Race test", "Auto open VW! (prints the state)", false, function(
             wait(1)
             chr.Head.Anchored = false
             wait(1)
-workspace.Races.RaceHandler.StartLobby:FireServer("Race")
+workspace:WaitForChild("Races"):WaitForChild("RaceHandler"):WaitForChild("StartLobby"):FireServer(unpack(Race))
+
+                workspace:WaitForChild("Races"):WaitForChild("RaceHandler"):WaitForChild("StartLobby"):FireServer(unpack(args))
+                
             task.wait(15)
-workspace.Races.Race.Script.Vote:FireServer("10", "Vote")
+workspace.Races.Race.Script.Vote:FireServer("5", "Vote")
             repeat wait()
             until game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true or _G.racetest == false
             elseif game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true then
