@@ -79,7 +79,7 @@ end)
 
 
 -- Create the second tab with a different image ID
-local tab2 = DrRayLibrary.newTab("Tab 2", "ImageIdLogoHere")
+local tab2 = DrRayLibrary.newTab("Events !", "ImageIdLogoHere")
 
 -- Add elements to the second tab
 tab2.newLabel("Hello, this is Tab 2.")
@@ -95,4 +95,7 @@ tab2.newToggle("Toggle", "Toggle! (prints the state)", true, function(toggleStat
 end)
 tab2.newDropdown("Dropdown", "Select one of these options!", {"water", "dog", "air", "bb", "airplane", "wohhho", "yeay", "delete"}, function(selectedOption)
     print(selectedOption)
+end)
+tab.newInput("Input", "Prints your input.", function(text)
+    print("Entered text: " .. text)
 end)
