@@ -1,0 +1,6 @@
+local args = {
+    [1] = "Porsche21",
+    [2] = "Desktop"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("Remotes"):WaitForChild("Spawn"):FireServer(unpack(args))
