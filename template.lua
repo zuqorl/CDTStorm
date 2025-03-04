@@ -60,14 +60,14 @@ tab1.newToggle("Race test", "Auto open VW! (prints the state)", false, function(
             wait(1)
             chr.Head.Anchored = false
             wait(1)
-workspace.Races.RaceHandler.StartLobby:FireServer("Shelby")
+workspace.Races.RaceHandler.StartLobby:FireServer("Race")
             task.wait(15)
-workspace.Races.Shelby.Script.Vote:FireServer("5", "Vote")
+workspace.Races.Race.Script.Vote:FireServer("10", "Vote")
             repeat wait()
             until game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true or _G.racetest == false
             elseif game:GetService("Players").LocalPlayer.PlayerGui.Menu.Race.Visible == true then
             for i =1,50 do
-workspace.Races.Shelby.Script.Checkpoint:FireServer(i)
+workspace.Races.Race.Script.Checkpoint:FireServer(i)
 end
 end
 end
@@ -88,28 +88,7 @@ tab2.newButton("Button", "Prints Hello!", function()
 end)
 tab2.newToggle("Toggle", "Toggle! (prints the state)", true, 
 
-function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
-
-local functionInfo = {
-    ["script"] = {
-        ["SourceScript"] = getNil("LocalScript", "LocalScript"),
-        ["CallingScript"] = game:GetService("Players").LocalPlayer:WaitForChild("Handler")
-    },
-    ["upvalues"] = {},
-    ["info"] = {
-        ["source"] = "=[C]",
-        ["what"] = "C",
-        ["numparams"] = 0,
-        ["func"] = function: 0x2298689580391e25,
-        ["short_src"] = "[C]",
-        ["currentline"] = -1,
-        ["name"] = "",
-        ["is_vararg"] = 1,
-        ["nups"] = 0
-    },
-    ["constants"] = "N/A --Lua Closure expected got C Closure"
-}
-
+function ()
 
 end)
 tab2.newDropdown("Dropdown", "Select one of these options!", {"water", "dog", "air", "bb", "airplane", "wohhho", "yeay", "delete"}, function(selectedOption)
