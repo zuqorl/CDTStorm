@@ -86,12 +86,31 @@ tab2.newLabel("Hello, this is Tab 2.")
 tab2.newButton("Button", "Prints Hello!", function()
     print('Hello!')
 end)
-tab2.newToggle("Toggle", "Toggle! (prints the state)", true, function(toggleState)
-    if toggleState then
-        print("On")
-    else
-        print("Off")
-    end
+tab2.newToggle("Toggle", "Toggle! (prints the state)", true, 
+
+function getNil(name,class) for _,v in next, getnilinstances() do if v.ClassName==class and v.Name==name then return v;end end end
+
+local functionInfo = {
+    ["script"] = {
+        ["SourceScript"] = getNil("LocalScript", "LocalScript"),
+        ["CallingScript"] = game:GetService("Players").LocalPlayer:WaitForChild("Handler")
+    },
+    ["upvalues"] = {},
+    ["info"] = {
+        ["source"] = "=[C]",
+        ["what"] = "C",
+        ["numparams"] = 0,
+        ["func"] = function: 0x2298689580391e25,
+        ["short_src"] = "[C]",
+        ["currentline"] = -1,
+        ["name"] = "",
+        ["is_vararg"] = 1,
+        ["nups"] = 0
+    },
+    ["constants"] = "N/A --Lua Closure expected got C Closure"
+}
+
+
 end)
 tab2.newDropdown("Dropdown", "Select one of these options!", {"water", "dog", "air", "bb", "airplane", "wohhho", "yeay", "delete"}, function(selectedOption)
     print(selectedOption)
